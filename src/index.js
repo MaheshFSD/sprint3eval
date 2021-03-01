@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AuthContextComponent from './Context/AuthContext';
+import { BrowserRouter } from 'react-router-dom';
+import { CartContextProvider } from './Context/CartContext';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <React.StrictMode>
+      <CartContextProvider>
+      <AuthContextComponent>
+        <App />
+      </AuthContextComponent>
+      </CartContextProvider>
+    </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 
